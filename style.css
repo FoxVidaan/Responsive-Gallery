@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --font-family: Roboto;
+    --clr-btn: rgba(238, 238, 238, 0.93);
+    --clr-active-btn: #4B79A3;
+    --clr-active-font-btn: white;
+}
+
+body {
+    font-family: var(--font-family);
+}
+
+section.blur {
+    filter: blur(40px);
+}
+
+.filterList {
+    padding-inline-start: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    list-style: none;
+}
+
+.filterList .filterButton {
+    cursor: pointer;
+    padding: 10px 20px;
+    background: var(--clr-btn);
+    /*box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.52);*/
+}
+
+.filterList .filterButton.active {
+    background: var(--clr-active-btn);
+    color: var(--clr-active-font-btn);
+    /*box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.52);*/
+}
+
+.product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product .itemBox {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.62);
+    position: relative;
+    cursor: pointer;
+}
+
+.product .itemBox.hide {
+    display: none;
+}
+
+.product .itemBox img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+    z-index: 0;
+}
+
+.lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.lightbox-close-btn {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 2em;
+}
+
+.lightbox-viewer {
+    width: 80%;
+    height: 80%;
+    position: relative;
+}
+
+.lightbox-viewer img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
