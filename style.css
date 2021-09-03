@@ -5,6 +5,7 @@
     --clr-btn: rgba(238, 238, 238, 0.93);
     --clr-active-btn: #4B79A3;
     --clr-active-font-btn: white;
+    --lightboxButtonSize: 3em;
 }
 
 body {
@@ -76,7 +77,6 @@ section.blur {
     width: 100%;
     box-sizing: border-box;
     display: none;
-    z-index: 0;
 }
 
 .lightbox.active {
@@ -94,7 +94,7 @@ section.blur {
 .lightbox-close-btn {
     cursor: pointer;
     padding: 5px;
-    font-size: 3em;
+    font-size: var(--lightboxButtonSize);
 }
 
 .lightbox-viewer {
@@ -108,7 +108,6 @@ section.blur {
     max-height: 100%;
     object-fit: cover;
     position: absolute;
-    z-index: -1;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);

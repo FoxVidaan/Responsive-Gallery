@@ -8,13 +8,12 @@ for (const filterButton of filterButtons) {
         filterButton.classList.add('active');
 
         for (const itemBox of itemBoxs) {
-            const filter = filterButton.getAttribute("data-filter");
-            const item = itemBox.getAttribute("data-item");
-            console.log(item + " " + filter)
+            const dataFilter = filterButton.getAttribute("data-filter");
+            const dataItem = itemBox.getAttribute("data-item");
 
-            itemBox.classList.remove("hide")
+            itemBox.classList.remove("hide");
 
-            if (item !== filter && "all" !== filter) {
+            if (dataItem !== dataFilter && "all" !== dataFilter) {
                 itemBox.classList.add("hide");
             }
         }
@@ -23,15 +22,15 @@ for (const filterButton of filterButtons) {
 
 const lightbox = document.querySelector('.lightbox');
 const section = document.querySelector('section');
-const lightboxImg = document.querySelector('.lightbox-viewer img');
 
 for (const itemBox of itemBoxs) {
     itemBox.addEventListener('click', () => {
-        const imgSrc = itemBox.children[0].src;
-        console.log(imgSrc);
-        lightbox.classList.add('active');
+
         section.classList.add('blur');
-        lightboxImg.src = imgSrc;
+        lightbox.classList.add('active');
+
+        const lightboxImg = document.querySelector('.lightbox-viewer img');
+        lightboxImg.src = itemBox.children[0].src;
     });
 }
 
@@ -40,5 +39,4 @@ const lightboxCloseButton = document.querySelector('.lightbox-close-btn');
 lightboxCloseButton.addEventListener('click', () => {
     lightbox.classList.remove('active');
     section.classList.remove('blur');
-
-})
+});
